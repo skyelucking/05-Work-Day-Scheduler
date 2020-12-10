@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery Calculator</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+
+    <!-- Added a link to our external stylesheet-->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Jumbotron for Title -->
+    <div class="jumbotron">
+      <h1 class="text-center">jQuery Calculator</h1>
+      <h3 class="text-center">
+        Perform basic mathematic operations using the power of jQuery!
+      </h3>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <!-- Calculator Card -->
+        <div class="col-lg-4">
+          <div class="card">
+            <h3 class="card-header">Calculator</h3>
+
+            <div class="card-body">
+              <button id="button-1" class="btn btn-primary number" value="1">
+                <span>1</span>
+              </button>
+              <button id="button-2" class="btn btn-primary number" value="2">
+                <span>2</span>
+              </button>
+              <button id="button-3" class="btn btn-primary number" value="3">
+                <span>3</span>
+              </button>
+              <button
+                id="button-plus"
+                class="btn btn-danger operator"
+                value="plus"
+              >
+                <span>+</span>
+              </button>
+              <br /><br />
+              <button id="button-4" class="btn btn-primary number" value="4">
+                <span>4</span>
+              </button>
+              <button id="button-5" class="btn btn-primary number" value="5">
+                <span>5</span>
+              </button>
+              <button id="button-6" class="btn btn-primary number" value="6">
+                <span>6</span>
+              </button>
+              <button
+                id="button-minus"
+                class="btn btn-danger operator"
+                value="minus"
+              >
+                <span>&minus;</span>
+              </button>
+              <br /><br />
+              <button id="button-7" class="btn btn-primary number" value="7">
+                <span>7</span>
+              </button>
+              <button id="button-8" class="btn btn-primary number" value="8">
+                <span>8</span>
+              </button>
+              <button id="button-9" class="btn btn-primary number" value="9">
+                <span>9</span>
+              </button>
+              <button
+                id="button-multiply"
+                class="btn btn-danger operator"
+                value="times"
+              >
+                <span>&times;</span>
+              </button>
+              <br /><br />
+              <button id="button-0" class="btn btn-primary number" value="0">
+                <span>0</span>
+              </button>
+              <button
+                id="button-divide"
+                class="btn btn-danger operator"
+                value="divide"
+              >
+                <span>&divide;</span>
+              </button>
+              <button
+                id="button-power"
+                class="btn btn-danger operator"
+                value="power"
+              >
+                <span>^</span>
+              </button>
+              <button
+                id="button-equal"
+                class="btn btn-success equal"
+                value="equals"
+              >
+                <span>=</span>
+              </button>
+              <br /><br />
+              <button
+                id="button-clear"
+                class="btn btn-dark clear"
+                value="clear"
+              >
+                <span>clear</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Card -->
+        <div class="col-lg-6">
+          <div class="card">
+            <h3 class="card-header">Result</h3>
+            <div class="card-body">
+              <h1 id="first-number" style="text-align: right"></h1>
+              <h1 id="operator" style="text-align: right"></h1>
+              <h1 id="second-number" style="text-align: right"></h1>
+              <hr />
+              <h1 id="result"></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        // Your code here...
+        // - created variables for all buttons + calc
+        // - eventlisteners for each buttons
+        // - funtions to 'turn on the calc'
+        // - funtion to take
+
+        var oneButton = $("#button-1");
+        var twoButton = $("#button-2");
+        var threeButton = $("#button-3");
+        var fourButton = $("#button-4");
+        var fiveButton = $("#button-5");
+        var sixButton = $("#button-6");
+        var sevenButton = $("#button-7");
+        var eightButton = $("#button-8");
+        var nineButton = $("#button-9");
+        var zeroButton = $("#button-0");
+        var addButton = $("#button-plus");
+        var subtractButton = $("button-minus");
+        var multiplyButton = $("#button-multiply");
+        var divideButton = $("#button-divide");
+        var clearButton = $("#button-clear");
+        var powerButton = $("#button-power");
+        var equalsButton = $("#button-equal");
+
+        var calcFirst = $("#first-number");
+        var calcOperator = $("#operator");
+        var calcSecond = $("#second-number");
+        var calcResult = $("#result");
+        var isFirst = true;
+
+        $(document).on(
+          "click",
+          "#button-plus, #button-minus, #button-multiply, #button-divide, #button-power",
+          function () {
+            isFirst = false;
+            calcOperator.text = this.value;
+            console.log(this.value);
+          }
+        );
+
+        $(document).on(
+          "click",
+          "#button-1, #button-2, #button-3, #button-4, #button-5, #button-6, #button-7, #button-8, #button-9, #button-0",
+          function () {
+            if (isFirst == true) {
+              var currentVal = calcFirst.text();
+              calcFirst.text(currentVal + this.value);
+              console.log(this.value);
+            } else {
+              var currentVal = calcSecond.text();
+              calcSecond.text(currentVal + this.value);
+              console.log(this.value);
+            }
+          }
+        );
+
+        $(document).on(
+          "click",
+          "#button-equal",
+          function () {
+            calcFirst = parseInt(calcFirst);
+            calcSecond = parseInt(calcSecond);
+            calcResult = parseInt(calcResult);
+            calcResult = calcFirst + calcSecond;
+            console.log(typeof calcResult);
+            if (calcOperator.text === "plus"){
+            // calcResult = calcFirst + calcSecond;
+            console.log(calcResult);
+              
+            }
+            
+            
+            console.log(this.value);
+          }
+        );
+      });
+    </script>
+  </body>
+</html>
