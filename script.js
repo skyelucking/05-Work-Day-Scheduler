@@ -1,6 +1,6 @@
 //Declare TimeBlocks Array
 var timeBlocksObj = {
-  9: {
+  09: {
     displayHour: "9 am",
     reminder: "",
   },
@@ -42,7 +42,7 @@ var timeBlocksObj = {
 var now = moment();
 var currentHeaderDate = moment().format("dddd, MMMM Do");
 var currentTime = moment().format("hh:mm A");
-var currentHour = moment().format("H");
+var currentHour = moment().format("HH");
 
 //Get Current Day and TIme
 function getCurrentDay() {
@@ -63,12 +63,13 @@ function renderTimeBlocks() {
     row.append(col1);
     //Formats Timeblocks for Past, Present, and Future
     col2 = $("<div></div>").attr("id", [key]);
-    if ([key] == +currentHour) {
-      col2.addClass("col-10 description present");
-    } else if ([key] > currentHour) {
+    //Parsing key into a number
+    if (parseInt([key]) < currentHour) {
       col2.addClass("col-10 description past");
-    } else if ([key] < currentHour) {
+    } else if (parseInt([key]) > currentHour) {
       col2.addClass("col-10 description future");
+    } else if (parseInt([key]) == currentHour) {
+      col2.addClass("col-10 description present");
     }
     textArea = $("<textarea><textarea>")
       .attr("id", "reminder" + key)
@@ -95,16 +96,16 @@ function saveToLocalStorage() {
 }
 
 function getFromLocalStorage() {
-// Check if local storage (LS) key exists
+  // Check if local storage (LS) key exists
   if (localStorage.getItem("timeblocks")) {
-// Then retrieve the associated value from LS
+    // Then retrieve the associated value from LS
     timeBlocksObj = JSON.parse(localStorage.getItem("timeblocks"));
   }
 }
 
 // Set Reminders for Button Clicks
 function saveReminder(e) {
-//update Reminder for hour
+  //update Reminder for hour
   var hour = $(e.target).data("hour");
   var reminderId = $(e.target).data("reminder-id");
   var reminderText = $("#" + reminderId).val();
@@ -114,9 +115,9 @@ function saveReminder(e) {
 }
 //Initializes Page
 function initialize() {
-  getFromLocalStorage();
   renderTimeBlocks();
-  }
+  getFromLocalStorage();
+}
 $(document).ready(function () {
   getCurrentDay();
   getCurrentTime();
