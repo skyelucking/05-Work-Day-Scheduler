@@ -66,14 +66,22 @@ function renderTimeBlocks() {
   var row, col1, col2, col3, textArea, i;
  
   for (const [key, value] of Object.entries(timeBlocksObj)) {
+ 
     row = $("<div></div>").addClass("row time-block");
     col1 = $("<div></div>").addClass("col-1 hour").text(value.displayHour);
-    console.log( [key, value])
+    console.log([key] )
+    console.log([key] - currentHour)
     row.append(col1);
     col2 = $("<div></div>")
-      .addClass("col-10 description")
-      .attr("id", "block" + value.hour);
-    textArea = $("<textarea><textarea>")
+    .attr("id", [key]);
+    if ([key] ==+ currentHour) {
+        col2.addClass("col-10 description present")
+    } else if ([key] > currentHour) {
+        col2.addClass("col-10 description past")
+    } else if ([key] < currentHour) {
+        col2.addClass("col-10 description future")
+    }
+      textArea = $("<textarea><textarea>")
       .attr("id", "reminder" + key)
       .addClass("description")
       .val(value.reminder);
@@ -92,6 +100,11 @@ function renderTimeBlocks() {
     row.append(col3);
     timeBlockContainer.append(row);
   }
+}
+// Format Time Blocks to Past, Present, Future
+function formatTimeBlocks() {
+    console.log(timeBlockContainer)
+    console.log("current hour2 " + currentHour)
 }
 
 function saveToLocalStorage() {
@@ -120,9 +133,8 @@ function saveReminder(e) {
 function initialize() {
   getFromLocalStorage();
   renderTimeBlocks();
+  formatTimeBlocks();
 }
-// Format Time Blocks to Past, Present, Future
-function formatTimeBlocks() {}
 
 $(document).ready(function () {
   getCurrentDay();
