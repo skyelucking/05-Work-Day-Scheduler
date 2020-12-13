@@ -120,13 +120,13 @@ function initialize() {
   getFromLocalStorage();
 }
 function heroModeOn(){
-  $("#style").attr("href", "stylehero.css");
+  $("#style").attr("href", "Assets/stylehero.css");
   $('#simple').text("A HEROIC APP FOR SAVING THE WOOOORRRRLLLDDD!").css("font-size", "2em");
  }
   
 
 function heroModeOff(){
-  $("#style").attr("href", "style.css");
+  $("#style").attr("href", "Assets/style.css");
   $('#simple').text("A simple calendar app for scheduling your work day");
 }
 
