@@ -1,3 +1,5 @@
+var buttonVal = "false";
+
 //Declare TimeBlocks Array
 var timeBlocksObj = {
   09: {
@@ -51,8 +53,7 @@ function getCurrentDay() {
 function getCurrentTime() {
   $("#currentTime").text(currentTime);
 }
-{
-}
+
 //Render Time Blocks
 function renderTimeBlocks() {
   var timeBlockContainer = $("#timeBlockContainer");
@@ -88,7 +89,7 @@ function renderTimeBlocks() {
     col3.append(i);
     row.append(col3);
     timeBlockContainer.append(row);
-  }
+      }
 }
 
 function saveToLocalStorage() {
@@ -118,8 +119,24 @@ function initialize() {
   renderTimeBlocks();
   getFromLocalStorage();
 }
+function heroModeOn(){
+  $("#style").attr("href", "stylehero.css");
+  $('#simple').text("A HEROIC APP FOR SAVING THE WOOOORRRRLLLDDD!").css("font-size", "2em");
+ }
+  
+
+function heroModeOff(){
+  $("#style").attr("href", "style.css");
+  $('#simple').text("A simple calendar app for scheduling your work day");
+}
+
+
+
 $(document).ready(function () {
+  heroModeOn();
+  heroModeOff();
   getCurrentDay();
   getCurrentTime();
   initialize();
+  
 });

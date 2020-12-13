@@ -3,6 +3,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  background-image: url("/Assets/starburst.jpg");
 }
 
 textarea{
@@ -18,21 +19,17 @@ textarea{
 
 .jumbotron {
   text-align: center;
-  background-color: transparent;
-  color: black;
+  background-color: black;
+  color: rgb(253, 221, 36);
   border-radius: 0;
   border-bottom: 5px solid black;
   padding-top: 10px;
   padding-bottom: 10px;
+  
 }
-.heroThings {
-  background-color: black;
-  color: rgb(253, 221, 36);
-  }
-  .heroback {
-    background-image: url("/Assets/starburst.jpg");
-    }
 
+
+  
 .description{
   white-space: pre-wrap;
 }
@@ -49,37 +46,29 @@ textarea{
 }
 
 .hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
-  display: flex;
-  align-items: center;
- 
-  
-  
-}
-.heroHour {
-  background-color: #ffffff;
+  background-color: #ffd900;
   color: #000000;
   border-top: 1px dashed #000000;
   display: flex;
   align-items: center;
   font-size: 2em;
   font-family: 'Faster One', cursive;
+ 
+  
 }
 
 .past {
-  background-color: #d3f2fa;
+  background-color: #f6cb7b;
   color: white;
 }
 
 .present {
-  background-color: #7899f6;
+  background-color: #ffef08;
   color: white;
 }
 
 .future {
-  background-color: #faf4a0;
+  background-color: #23e6f8;
   color: white;
 }
 
@@ -95,7 +84,6 @@ textarea{
   align-items: center;
   
 }
-
 .fas{
   font-size: 3em;
   padding: 0px;
@@ -103,47 +91,37 @@ textarea{
   border: 10px;
 }
 
+.fa-mask{
+  font-size: 3em;
+  padding: 15px;
+  margin: 10px;
+  border: 10px;
+  background-color: rgb(253, 221, 36);
+  border: dashed;
+}
+
+.fa-glasses{
+  font-size: 3em;
+  padding: 15px;
+  margin: 10px;
+  border: 10px;
+  background-color: rgb(253, 221, 36);
+  border: dashed;
+}
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
 
-.heroH1{
+.display-3{
   color: rgb(253, 221, 36);
   font-family: 'Faster One', cursive;
   font-size: 6em;
+  font-family: 'Faster One', cursive;
 }
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
  
-}
-.heroButtonOn {
-  height: 25px;
-  width: 25px;
-  margin: 5px;
-  margin-top: 0px;
-  margin-left: 10px;
-  border-radius: 100%;
-  font-size: 1em;
-  background-color: transparent;
-  border: none;
-  color: #fdfdfd;
-  cursor: cell;
-  text-align: center;
-}
-.heroButtonOff {
-  height: 25px;
-  width: 25px;
-  margin: 5px;
-  margin-top: 0px;
-  margin-left: 10px;
-  border-radius: 100%;
-  font-size: 1em;
-  background-color: transparent;
-  border: none;
-  color: #fdfdfd;
-  cursor: cell;
-  text-align: center;
 }

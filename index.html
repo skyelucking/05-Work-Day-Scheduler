@@ -18,19 +18,31 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" id="style" href="style.css" />
     <title>Work Day Scheduler</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
-      <p id="currentTime" class="lead"></p>
+      <p id="simple" style="display: visible">A simple calendar app for scheduling your work day</p>
+      
+      <!-- // Hero Mode // -->
+     <button id="heroOnBtn" value="true" onclick="heroModeOn()">
+      Hero<br><i class="fas fa-mask"></i>
+        </button></div>
+        <button id="heroOffBtn" value="false" onclick="heroModeOff()">Normie<br>
+          <i class="fas fa-glasses"></i>
+             </button> </div>
+   <!-- // End Hero Mode // -->
+
+     <div><div id="currentDay" class="lead"></div><div id="currentTime" class="lead"></div></div> 
+      
     </header>
     <div class="container" id="timeBlockContainer">
       <!-- Timeblocks go here -->
