@@ -89,7 +89,7 @@ function renderTimeBlocks() {
     col3.append(i);
     row.append(col3);
     timeBlockContainer.append(row);
-      }
+  }
 }
 
 function saveToLocalStorage() {
@@ -119,18 +119,17 @@ function initialize() {
   renderTimeBlocks();
   getFromLocalStorage();
 }
-function heroModeOn(){
+function heroModeOn() {
   $("#style").attr("href", "Assets/stylehero.css");
-  $('#simple').text("A HEROIC APP FOR SAVING THE WOOOORRRRLLLDDD!").css("font-size", "2em");
- }
-  
-
-function heroModeOff(){
-  $("#style").attr("href", "Assets/style.css");
-  $('#simple').text("A simple calendar app for scheduling your work day");
+  $("#simple")
+    .text("A HEROIC APP FOR SAVING THE WOOOORRRRLLLDDD!")
+    .css("font-size", "2em");
 }
 
-
+function heroModeOff() {
+  $("#style").attr("href", "Assets/style.css");
+  $("#simple").text("A simple calendar app for scheduling your work day");
+}
 
 $(document).ready(function () {
   heroModeOn();
@@ -138,5 +137,4 @@ $(document).ready(function () {
   getCurrentDay();
   getCurrentTime();
   initialize();
-  
 });
