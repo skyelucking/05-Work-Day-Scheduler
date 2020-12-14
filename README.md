@@ -1,105 +1,34 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Skye Lucking - 05 Workday Planner with Hero Option!
 
-## Your Task
+<h1>Description of application</h1>
+Do you ever feel like it's a heroic act just to show up to work? Well, you are in luck! This workday planner allows you to plan your day in normal or hero mode! Both modes will show you the events of your day saved from local storage - be it finishing up your code project or fighting off evil villans!
+<ul>
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+<li>Time blocks show up and offer a space to input and save tasks. </li>
+<li> Time blocks are color coded for past, present, future.</li>
+<li>current date and time are shown at the top of the interface</li>
+<li>Select HERO or NORMIE mode depending on your mood</li>
+<li> Enjoy!</li>
+</ul>
 
-You'll need to use a library like [Moment.js](https://momentjs.com/) to work with dates and times. `Moment.js` has historically been the most popular date/time library but is no longer supported by its developers. However, you can still use it for this project, or you can look into one of the following alternatives:
-
-  * [Luxon](https://moment.github.io/luxon/)
-
-  * [Day.js](https://day.js.org/)
-
-  * [date-fns](https://date-fns.org/)
-
-  * [js-Joda](https://js-joda.github.io/js-joda/)
-
-Whichever library you choose, be sure to read the documentation carefully!
-
-
-## User Story
-
-```
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+<h1>Screenshot</h1>
+<img src="Assets/SS1.png"><br>
+<img src="Assets/SS2.png"><br>
+<img src="Assets/SS3.png"><br>
 
 
-## Acceptance Criteria
 
-```
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with time blocks for standard business hours
-WHEN I view the time blocks for that day
-THEN each time block is color-coded to indicate whether it is in the past, present, or future
-WHEN I click into a time block
-THEN I can enter an event
-WHEN I click the save button for that time block
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+<h1>Link to the deployed application</h1>
+<a href="https://skyelucking.github.io/05-Work-Day-Scheduler/">https://skyelucking.github.io/05-Work-Day-Scheduler/</a>
 
+<h1>Link to GitHub Repo</h1>
+<a href="https://github.com/skyelucking/05-Work-Day-Scheduler">https://github.com/skyelucking/05-Work-Day-Scheduler</a>
 
-## Mock-Up
+<hr>
 
-The following animation demonstrates the application functionality:
-
-![day planner demo](./Assets/05-third-party-apis-homework-demo.gif)
-
-
-## Grading Requirements
-
-This homework is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the above acceptance criteria plus the following:
-
-  * Uses the Moment.js library to work with date and time
-
-### Deployment: 32%
-
-* Application deployed at live URL
-
-* Application loads with no errors
-
-* Application GitHub URL submitted
-
-* GitHub repo contains application code
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate
-
-* Application user interface style is clean and polished
-
-* Application resembles the mock-up functionality provided in the homework instructions
-
-### Repository Quality: 13%
-
-* Repository has a unique name
-
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages
-
-* Repository contains quality README file with description, screenshot, and link to deployed application
-
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+Now here is your joke...<br>
+What do you call a computer superhero?
+<br>
+<br>
+<br>
+<em>A screensaver</em>
