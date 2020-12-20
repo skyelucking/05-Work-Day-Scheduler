@@ -40,6 +40,17 @@ var timeBlocksObj = {
   },
 };
 
+var reminders = JSON.parse(localStorage.getItem("timeblocks"));
+console.log(reminders);
+
+//Check Local Storage for Reminders//
+function checkTimeBlocks() {
+  if (reminders === null) {
+    console.log("Reminder" + reminders);
+    console.log("Reminder" + reminders[0].reminder);
+  }
+}
+
 //Declare Date and Time Variables//
 var now = moment();
 var currentHeaderDate = moment().format("dddd, MMMM Do");
@@ -58,13 +69,15 @@ function getCurrentTime() {
 function renderTimeBlocks() {
   var timeBlockContainer = $("#timeBlockContainer");
   var row, col1, col2, col3, textArea, i;
+
   for (const [key, value] of Object.entries(timeBlocksObj)) {
     row = $("<div></div>").addClass("row time-block");
+
     col1 = $("<div></div>").addClass("col-1 hour").text(value.displayHour);
     row.append(col1);
-    //Formats Timeblocks for Past, Present, and Future
     col2 = $("<div></div>").attr("id", [key]);
-    //Parsing key into a number
+
+    //Parsing key into a number and Formats Timeblocks for Past, Present, and Future
     if (parseInt([key]) < currentHour) {
       col2.addClass("col-10 description past");
     } else if (parseInt([key]) > currentHour) {
@@ -72,12 +85,23 @@ function renderTimeBlocks() {
     } else if (parseInt([key]) == currentHour) {
       col2.addClass("col-10 description present");
     }
-    textArea = $("<textarea><textarea>")
-      .attr("id", "reminder" + key)
-      .addClass("description")
-      .val(value.reminder);
-    col2.append(textArea);
-    row.append(col2);
+    if (reminders[key].reminder !== null) {
+      timeBlocksObj[key].reminder = reminders[key].reminder;
+      textArea = $("<textarea><textarea>")
+        .attr("id", "reminder" + key)
+        .addClass("description")
+        .val(value.reminder);
+      col2.append(textArea);
+      row.append(col2);
+    } else {
+      textArea = $("<textarea><textarea>")
+        .attr("id", "reminder" + key)
+        .addClass("description")
+        .val(value.reminder);
+       col2.append(textArea);
+        row.append(col2);
+    }
+    
     col3 = $("<div></div>")
       .addClass("col-1 saveBtn")
       .attr("id", "saveBtn" + key);
@@ -90,7 +114,7 @@ function renderTimeBlocks() {
     row.append(col3);
     timeBlockContainer.append(row);
   }
-}
+  }
 
 function saveToLocalStorage() {
   localStorage.setItem("timeblocks", JSON.stringify(timeBlocksObj));
@@ -100,8 +124,8 @@ function getFromLocalStorage() {
   // Check if local storage (LS) key exists
   if (localStorage.getItem("timeblocks")) {
     // Then retrieve the associated value from LS
-    timeBlocksObj = JSON.parse(localStorage.getItem("timeblocks"));
-  }
+    timeBlocksStore = JSON.parse(localStorage.getItem("timeblocks"));
+      }
 }
 
 // Set Reminders for Button Clicks
@@ -116,8 +140,8 @@ function saveReminder(e) {
 }
 //Initializes Page
 function initialize() {
-  renderTimeBlocks();
   getFromLocalStorage();
+  renderTimeBlocks();
 }
 function heroModeOn() {
   $("#style").attr("href", "Assets/stylehero.css");
@@ -132,9 +156,14 @@ function heroModeOff() {
 }
 
 $(document).ready(function () {
+  getFromLocalStorage();
   heroModeOn();
   heroModeOff();
   getCurrentDay();
   getCurrentTime();
   initialize();
 });
+
+// if (timeBlocksStore !== null) {
+//   timeBlocksObj.reminder = timeBlocksStore.reminder
+//   console.log(timeBlocksObj[9].reminder + "||" + timeBlocksStore[9].reminder )
