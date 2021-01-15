@@ -1,5 +1,5 @@
 var buttonVal = "false";
-
+var reminders = JSON.parse(localStorage.getItem("timeblocks"));
 //Declare TimeBlocks Array
 var timeBlocksObj = {
   09: {
@@ -40,16 +40,16 @@ var timeBlocksObj = {
   },
 };
 
-var reminders = JSON.parse(localStorage.getItem("timeblocks"));
-console.log(reminders);
 
-//Check Local Storage for Reminders//
+
+// Check Local Storage for Reminders
 function checkTimeBlocks() {
-  if (reminders === null) {
+   if (reminders === null) {
     console.log("Reminder" + reminders);
     console.log("Reminder" + reminders[0].reminder);
   }
 }
+console.log(reminders);
 
 //Declare Date and Time Variables//
 var now = moment();
@@ -156,6 +156,7 @@ function heroModeOff() {
 }
 
 $(document).ready(function () {
+  
   getFromLocalStorage();
   heroModeOn();
   heroModeOff();
@@ -164,6 +165,12 @@ $(document).ready(function () {
   initialize();
 });
 
+function saveToLocalStorage() {
+  localStorage.setItem("timeblocks", JSON.stringify(timeBlocksObj));
+  console.log("storage set")
+}
+
 // if (timeBlocksStore !== null) {
 //   timeBlocksObj.reminder = timeBlocksStore.reminder
 //   console.log(timeBlocksObj[9].reminder + "||" + timeBlocksStore[9].reminder )
+// }
