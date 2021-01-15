@@ -45,11 +45,13 @@ var timeBlocksObj = {
 // Check Local Storage for Reminders
 function checkTimeBlocks() {
    if (reminders === null) {
-    console.log("Reminder" + reminders);
-    console.log("Reminder" + reminders[0].reminder);
-  }
+    console.log("No Data");
+      }
+      else if (reminders !== null){
+        console.log("Data exists")
+      }
 }
-console.log(reminders);
+
 
 //Declare Date and Time Variables//
 var now = moment();
@@ -67,6 +69,7 @@ function getCurrentTime() {
 
 //Render Time Blocks
 function renderTimeBlocks() {
+
   var timeBlockContainer = $("#timeBlockContainer");
   var row, col1, col2, col3, textArea, i;
 
@@ -85,7 +88,7 @@ function renderTimeBlocks() {
     } else if (parseInt([key]) == currentHour) {
       col2.addClass("col-10 description present");
     }
-    if (reminders[key].reminder !== null) {
+    if (reminders !== null && reminders[key].reminder !== null) {
       timeBlocksObj[key].reminder = reminders[key].reminder;
       textArea = $("<textarea><textarea>")
         .attr("id", "reminder" + key)
@@ -140,6 +143,7 @@ function saveReminder(e) {
 }
 //Initializes Page
 function initialize() {
+  checkTimeBlocks(); 
   getFromLocalStorage();
   renderTimeBlocks();
 }
